@@ -7,7 +7,6 @@ import fetcher from "@utils/Fetcher";
 export default function Home() {
   // const [hasUpdated, setHasUpdated] = useState(false);
   const { data } = useSWR("/api/youtube", fetcher);
-  const { stefanJudis, whitep4nth3r } = data;
 
   // const dataCache = useRef(data?.subscriberCount);
 
@@ -33,10 +32,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>whitep4nth3r subs {format(whitep4nth3r.subscriberCount)}</h1>
-        <h1>whitep4nth3r views {format(whitep4nth3r.viewCount)}</h1>
-        <h1>stefan judis subs {format(stefanJudis.subscriberCount)}</h1>
-        <h1>stefan judis views {format(stefanJudis.viewCount)}</h1>
+        <h1>whitep4nth3r subs {format(data?.whitep4nth3r.subscriberCount)}</h1>
+        <h1>whitep4nth3r views {format(data?.whitep4nth3r.viewCount)}</h1>
+        <h1>stefan judis subs {format(data?.stefanJudis.subscriberCount)}</h1>
+        <h1>stefan judis views {format(data?.stefanJudis.viewCount)}</h1>
       </main>
     </>
   );
