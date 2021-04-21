@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>whitp4nth3r vs Stefan Judis</title>
+        <title>whitep4nth3r vs Stefan Judis</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
