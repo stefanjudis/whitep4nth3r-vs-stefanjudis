@@ -36,11 +36,9 @@ export default async (_, res) => {
   return res.status(200).json({
     whitep4nth3r: {
       subscriberCount: whitep4nth3r.statistics.subscriberCount,
-      viewCount: whitep4nth3r.statistics.viewCount,
     },
     stefanJudis: {
       subscriberCount: stefanJudis.statistics.subscriberCount,
-      viewCount: stefanJudis.statistics.viewCount,
     },
   });
 };

@@ -4,6 +4,9 @@ import useSWR from "swr";
 import format from "comma-number";
 import fetcher from "@utils/Fetcher";
 
+import Dude from "@components/svg/Dude";
+import Panther from "@components/svg/Panther";
+
 export default function Home() {
   // const [hasUpdated, setHasUpdated] = useState(false);
   const { data } = useSWR("/api/youtube", fetcher);
@@ -24,6 +27,9 @@ export default function Home() {
   //   };
   // }, [data]);
 
+  //todo
+  //social + website links
+
   return (
     <>
       <Head>
@@ -32,10 +38,45 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>whitep4nth3r subs {format(data?.whitep4nth3r.subscriberCount)}</h1>
-        <h1>whitep4nth3r views {format(data?.whitep4nth3r.viewCount)}</h1>
-        <h1>stefan judis subs {format(data?.stefanJudis.subscriberCount)}</h1>
-        <h1>stefan judis views {format(data?.stefanJudis.viewCount)}</h1>
+        <div className="container">
+          <div className="container__panther">
+            <div className="container__svgHolder">
+              <Panther />
+            </div>
+            <h2 className="container__pantherTitle">whitep4nth3r</h2>
+            <h3 className="container__pantherStat">{format(data?.whitep4nth3r.subscriberCount)}</h3>
+            <div className="container__buttonContainer">
+              <a
+                href="https://youtube.com/whitep4nth3r"
+                className="container__button"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View whitep4nth3r's YouTube channel"
+              >
+                View channel
+              </a>
+            </div>
+          </div>
+          <div className="container__vs"></div>
+          <div className="container__stefan">
+            <div className="container__svgHolder">
+              <Dude />
+            </div>
+            <h2 className="container__stefanTitle">Stefan Judis</h2>
+            <h3 className="container__stefanStat">{format(data?.stefanJudis.subscriberCount)}</h3>
+            <div className="container__buttonContainer">
+              <a
+                href="https://youtube.com/stefanjudis"
+                className="container__button"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Stefan Judis' YouTube channel"
+              >
+                View channel
+              </a>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );
